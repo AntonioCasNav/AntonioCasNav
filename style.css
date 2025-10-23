@@ -1,0 +1,390 @@
+/* Reset y configuración base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #e74c3c;
+    --text-color: #333;
+    --bg-color: #f8f9fa;
+    --card-bg: #ffffff;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-hover: 0 8px 15px rgba(0, 0, 0, 0.2);
+    --transition: all 0.3s ease;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+}
+
+/* Navegación */
+nav {
+    position: sticky;
+    top: 0;
+    background: linear-gradient(135deg, var(--primary-color), #34495e);
+    padding: 1rem 0;
+    box-shadow: var(--shadow);
+    z-index: 1000;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: var(--transition);
+    position: relative;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--secondary-color);
+    transition: var(--transition);
+    transform: translateX(-50%);
+}
+
+nav ul li a:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+nav ul li a:hover::after {
+    width: 80%;
+}
+
+/* Secciones generales */
+section {
+    max-width: 1200px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background: var(--card-bg);
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    animation: fadeIn 0.6s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+section header h1 {
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+section header h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+    border-radius: 2px;
+}
+
+/* Sobre Mí */
+#sobre-mi .presentacion {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow);
+}
+
+#sobre-mi .presentacion p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+}
+
+.especializacion {
+    background: var(--bg-color);
+    padding: 2rem;
+    border-radius: 10px;
+    border-left: 5px solid var(--secondary-color);
+}
+
+.especializacion h2 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+}
+
+.especializacion ul {
+    list-style: none;
+}
+
+.especializacion ul li {
+    padding: 0.8rem 0;
+    padding-left: 2rem;
+    position: relative;
+    font-size: 1.1rem;
+}
+
+.especializacion ul li::before {
+    content: '▹';
+    position: absolute;
+    left: 0;
+    color: var(--secondary-color);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Proyectos */
+.proyecto {
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid var(--bg-color);
+}
+
+.proyecto:last-child {
+    border-bottom: none;
+}
+
+.proyecto-card {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.proyecto-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.portada-juego {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 5px solid white;
+    box-shadow: var(--shadow);
+}
+
+.proyecto-card h2 {
+    color: white;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.detalle-proyecto {
+    padding: 1.5rem;
+}
+
+.detalle-proyecto h3 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin: 2rem 0 1rem 0;
+    padding-left: 1rem;
+    border-left: 4px solid var(--secondary-color);
+}
+
+.detalle-proyecto p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+.multimedia {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.multimedia img {
+    width: 100%;
+    max-width: 800px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.multimedia img:hover {
+    transform: scale(1.02);
+    box-shadow: var(--shadow-hover);
+}
+
+.multimedia a,
+.detalle-proyecto > a {
+    display: inline-block;
+    background: var(--secondary-color);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+}
+
+.multimedia a:hover,
+.detalle-proyecto > a:hover {
+    background: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+}
+
+/* Arte y Código */
+.seccion-rol {
+    background: var(--bg-color);
+    padding: 2rem;
+    margin: 2rem 0;
+    border-radius: 10px;
+    border-top: 4px solid var(--secondary-color);
+}
+
+.seccion-rol h2 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    display: inline-block;
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.contenidos {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.imagen-contenido {
+    width: 100%;
+    max-width: 700px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.imagen-contenido:hover {
+    transform: scale(1.03);
+    box-shadow: var(--shadow-hover);
+}
+
+.contenidos p,
+.seccion-rol > p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+pre {
+    background: #1e1e1e;
+    padding: 1.5rem;
+    border-radius: 10px;
+    overflow-x: auto;
+    box-shadow: var(--shadow);
+}
+
+code {
+    color: #d4d4d4;
+    font-family: 'Courier New', monospace;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Footer */
+footer {
+    background: linear-gradient(135deg, var(--primary-color), #34495e);
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    margin-top: 3rem;
+}
+
+footer p {
+    font-size: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    section {
+        margin: 1.5rem;
+        padding: 1.5rem;
+    }
+
+    section header h1 {
+        font-size: 2rem;
+    }
+
+    .proyecto-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .portada-juego {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+    }
+
+    .proyecto-card h2 {
+        font-size: 2rem;
+    }
+
+    .multimedia img {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    section header h1 {
+        font-size: 1.6rem;
+    }
+
+    .proyecto-card h2 {
+        font-size: 1.5rem;
+    }
+
+    nav ul li a {
+        font-size: 1rem;
+    }
+}
